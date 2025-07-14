@@ -1,3 +1,4 @@
+<%@ taglib prefix="securuty" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: isafronov_at
@@ -13,9 +14,12 @@
 <body>
 
 <br><h3>Информация доступная всем работникам</h3><br>
-<br><input type="button" value="Зарплата" onclick="window.location.href='${pageContext.request.contextPath}/hr_info'"> Только для работников hr <br>
-<br><input type="button" value="Нагрузка" onclick="window.location.href='${pageContext.request.contextPath}/manager_info'"> Только для менеджеров <br>
-
+<securuty:authorize access="hasRole('HR')">
+    <br><input type="button" value="Зарплата" onclick="window.location.href='${pageContext.request.contextPath}/hr_info'"> Только для работников hr <br>
+</securuty:authorize>
+<securuty:authorize access="hasRole('MANAGER')">
+    <br><input type="button" value="Нагрузка" onclick="window.location.href='${pageContext.request.contextPath}/manager_info'"> Только для менеджеров <br>
+</securuty:authorize>
 
 </body>
 </html>
