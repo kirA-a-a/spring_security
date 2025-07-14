@@ -1,4 +1,4 @@
-package com.safronov.spring.configuration;
+package com.safronov.spring.security.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,7 +16,7 @@ public class MyConfig {
     public ViewResolver viewResolver() {
 
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/view/jsp/");
+        viewResolver.setPrefix("/WEB-INF/view/");
         viewResolver.setSuffix(".jsp");
 
         return viewResolver;
